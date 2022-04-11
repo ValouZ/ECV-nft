@@ -1,0 +1,45 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Righteous", cursive;
+}
+
+body {
+  min-height: 100vh;
+  background: $main-bg;
+}
+
+a {
+  color: unset;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  padding: 50px;
+
+  h1{
+    font-family: Poppins;
+    text-align: center;
+    color: $white;
+    font-size: 80px;
+  }
+}
+
+button{
+  cursor: pointer;
+}
