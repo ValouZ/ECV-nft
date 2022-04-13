@@ -6,7 +6,7 @@ searchbar.value = ""; // Be sure to have an empty searchbar
 searchbar.addEventListener("keyup", (e) => {
   const search = e.target.value.toLowerCase();
   cards.forEach((card) => {
-    const title = card.querySelector(".card__title").innerText.toLowerCase();
+    const title = card.querySelector(".card__name").innerText.toLowerCase();
     if (title.indexOf(search) != -1) {
       card.classList.remove("not-searched");
     } else {
