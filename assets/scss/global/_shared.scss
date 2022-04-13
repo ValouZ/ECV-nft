@@ -10,6 +10,10 @@
 body {
   min-height: 100vh;
   background: $main-bg;
+
+  &.modal-opened {
+    overflow: hidden;
+  }
 }
 
 a {
@@ -32,14 +36,19 @@ ul {
   gap: 40px;
   padding: 50px;
 
-  h1{
-    font-family: Poppins;
+  h1 {
+    font-family: Modak;
     text-align: center;
     color: $white;
-    font-size: 80px;
+    font-size: clamp(70px, 10vw, 160px);
   }
 }
 
-button{
+button {
   cursor: pointer;
+}
+
+.h2 {
+  color: $white;
+  font-size: 2rem;
 }

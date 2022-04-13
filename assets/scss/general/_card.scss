@@ -2,7 +2,8 @@
   position: relative;
   flex-grow: 1;
   color: $white;
-  width: 400px;
+  width: 20%;
+  min-width: 360px;
   border-radius: 16px;
   background: lighten($color: $main-bg, $amount: 5);
   box-shadow: 0 15px 60px rgba(0, 0, 0, 0.5);
@@ -14,14 +15,28 @@
     object-fit: cover;
   }
 
-  &__content{
+  &__content {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 12px;
     padding: 20px;
   }
 
-  &__fav-button{
+  &__name {
+    position: relative;
+    font-size: 1.5rem;
+    font-weight: bold;
+    width: fit-content;
+    transition: 0.2s;
+    text-decoration: underline;
+
+    &:hover{
+      color: #6ccff6;
+      text-transform: uppercase;
+    }
+  }
+
+  &__fav-button {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -34,13 +49,13 @@
     font-size: 1rem;
     transition: 0.2s;
 
-    &:hover{
+    &:hover {
       color: $black;
-      background: rgba($color: #ffdf00, $alpha: 0.7);
+      background: rgba($color: $orange, $alpha: 0.7);
     }
   }
 
-  &__see-more-button{
+  &__see-more-button {
     font-size: 1.5rem;
     padding: 5px;
     border: none;
@@ -48,9 +63,17 @@
     color: $main-bg;
     transition: 0.2s;
 
-    &:hover{
-      background: darken($color:  $main-bg, $amount: 5);
+    &:hover {
+      background: darken($color: $main-bg, $amount: 5);
       color: $white;
     }
   }
+}
+
+.not-searched {
+  display: none;
+}
+
+.not-fav {
+  display: none;
 }

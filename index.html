@@ -5,6 +5,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Modak&display=swap" rel="stylesheet">
   <title>ECV NFT</title>
 </head>
 
@@ -31,21 +34,65 @@
 
   <section class="main">
     <h1>My NFT collection</h1>
+
     <section class="filters">
-      <h2 class="filters__title">Filters</h2>
+      <h2 class="filters__title h2">Filters</h2>
       <div class="filters__buttons">
-        <button class="filters__button filters__all" id="all">All</button>
-        <button class="filters__button filters__fav" id="fav">Favoris</button>
-        <button class="filters__button filters__creator" id="creator">Creator</button>
+        <button class="filters__button filters__button--active filters__all" id="all">All</button>
+        <button class="filters__button filters__fav" id="fav">Favorites</button>
+        <button class="filters__button filters__creator" id="creator">Creators</button>
         <button class="filters__button filters__sales" id="sales">Sales</button>
       </div>
     </section>
+
+    <section class="searchbar">
+      <label class="searchbar__title h2" for="searchbar">Search by name</label>
+      <div class="searchbar__container">
+        <button class="searchbar__clear">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <g data-name="Layer 2">
+              <g data-name="trash-2">
+                <rect width="24" height="24" opacity="0" />
+                <path
+                  d="M21 6h-5V4.33A2.42 2.42 0 0 0 13.5 2h-3A2.42 2.42 0 0 0 8 4.33V6H3a1 1 0 0 0 0 2h1v11a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V8h1a1 1 0 0 0 0-2zM10 4.33c0-.16.21-.33.5-.33h3c.29 0 .5.17.5.33V6h-4zM18 19a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V8h12z" />
+                <path d="M9 17a1 1 0 0 0 1-1v-4a1 1 0 0 0-2 0v4a1 1 0 0 0 1 1z" />
+                <path d="M15 17a1 1 0 0 0 1-1v-4a1 1 0 0 0-2 0v4a1 1 0 0 0 1 1z" />
+              </g>
+            </g>
+          </svg></button>
+        <input class="searchbar__input" id="searchbar" type="text">
+      </div>
+    </section>
+
     <section class="cards-container"></section>
+  </section>
+  <section class="details">
+    <button class="details__close">Close</button>
+    <div class="details__main">
+      <a class="details__name" href="" target="_blank"></a>
+      <div class="details__img">
+        <img src="" alt="">
+      </div>
+
+      <div class="details__content">
+        <p class="details__creator"></p>
+        <p class="details__description"></p>
+        <p class="details__sales"></p>
+        <div class="details__collection">
+          <h3 class="details__collection-title">Collection : <span class="details__collection-name"></span></h3>
+          <img class="details__collection-banner" src="" alt="">
+          <p class="details__collection-description"></p>
+        </div>
+      </div>
+
+    </div>
   </section>
 
 </body>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="assets/js/main.js"></script>
 <script src="assets/js/api.js"></script>
+<script src="assets/js/searchbar.js"></script>
+<script src="assets/js/open-card.js"></script>
 
 </html>
