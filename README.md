@@ -6,30 +6,31 @@ Made by Valentin Debray, valentin.debray@mail-ecv.fr
 
 ## TODO
 
-- sort by creator : put the unknown one at the end
 - Choosen feature
-- Use **CreateElement()** method
-- Upgrade **CreateElement()**
+- Pagination fetch : <http://awesome-nft-app.herokuapp.com/docs/>
+- Searchbar with API : https://awesome-nft-app.herokuapp.com/search?q={votre-recherche} and debounce
 
-Bonus : 
+Bonus :
 
 - Skeleton loading
-- LocalStorage : store the id or the object ? 
+- LocalStorage
 - Routing
-
 
 ## DONE
 
-- Product listing 
+- Product listing
 - See product details
-- Creator Filter
+- Creator Filter (unknow at the end)
 - Sales Filter
 - Add to fav
 - Delete from fav
-- Searchbar
+- Use **CreateElement()** method
+- Upgrade **CreateElement()**
 
+Bonus :
+
+- Searchbar
 
 ### sass command
 
 > sass ./assets/scss/main.scss ./assets/css/main.css --watch
-

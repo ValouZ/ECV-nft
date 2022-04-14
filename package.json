@@ -1,6 +1,8 @@
 {
+  "scripts": {
+    "dev": "sass ./assets/scss/main.scss ./assets/css/main.css --watch"
+  },
   "dependencies": {
-    "axios": "^0.26.1",
     "sass": "^1.50.0"
   }
 }
