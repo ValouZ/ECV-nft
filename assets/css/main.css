@@ -52,6 +52,20 @@ button {
   font-size: 2rem;
 }
 
+.main-btn {
+  font-size: 1.2rem;
+  padding: 8px 24px;
+  border: none;
+  background: #12056d;
+  color: #ffffff;
+  border-radius: 4px;
+  transition: 0.2s;
+}
+.main-btn:hover, .main-btn--active {
+  background: #260be7;
+  padding: 8px 32px;
+}
+
 .cards-container {
   display: flex;
   justify-content: center;
@@ -143,19 +157,6 @@ button {
   flex-wrap: wrap;
   justify-content: center;
   gap: 16px;
-}
-.filters__button {
-  font-size: 1.2rem;
-  padding: 8px 24px;
-  border: none;
-  background: #12056d;
-  color: #ffffff;
-  border-radius: 4px;
-  transition: 0.2s;
-}
-.filters__button:hover, .filters__button--active {
-  background: #260be7;
-  padding: 8px 32px;
 }
 
 .searchbar {

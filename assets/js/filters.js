@@ -42,7 +42,7 @@ function displayAll(cards) {
 
 function favorite(cards) {
   cards.forEach((card) => {
-    if (card.getAttribute("data-fav") === "true") {
+    if (card.getAttribute(constants.dataFav) === "true") {
       card.classList.remove(constants.notFavClass);
     } else {
       card.classList.add(constants.notFavClass);

@@ -6,14 +6,15 @@ Made by Valentin Debray, valentin.debray@mail-ecv.fr
 
 ## TODO
 
-- Choosen feature
+- Choosen feature : infinite scroll
 - Pagination fetch : <http://awesome-nft-app.herokuapp.com/docs/>
 - Searchbar with API : https://awesome-nft-app.herokuapp.com/search?q={votre-recherche} and debounce
+- Filters with api calls
+- Manage styles in **createElement()**
 
 Bonus :
 
 - Skeleton loading
-- LocalStorage
 - Routing
 
 ## DONE
@@ -29,6 +30,7 @@ Bonus :
 
 Bonus :
 
+- LocalStorage
 - Searchbar
 
 ### sass command

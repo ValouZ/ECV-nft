@@ -2,44 +2,45 @@ import constants from "./constants.js";
 import filters from "./filters.js";
 
 // ************ FAVORITES SECTION ************
-function init() {
+/* //TODO : Régler le problème de l'affichage des favoris, les favoris de la page 1
+  se suppriment lorsque l'on passe à la page 2. VOIR COMMENTAIRE SI DESSOUS
+*/
+async function init() {
   const favIds = JSON.parse(localStorage.getItem("favorites"));
+  console.log(favIds);
   if (favIds) {
     favIds.forEach((id) => {
       const card = document.querySelector(`.card[data-id="${id}"]`);
-      console.log(card);
-      updateFavBtn(card, card.querySelector(".card__fav-button"));
-      card.querySelector(".card__fav-button").textContent = constants.favText.isFav;
+      console.log(id, card);
+      //! updateFavBtn() qui provoque l'erreur
+      if (card) updateFavBtn(card, card.querySelector(".card__fav-button"));
     });
   }
 }
 
 function updateFavBtn(card, btn) {
+  console.log("updateFavBtn");
   const filterFavBtn = document.querySelector(".filters__fav");
   const dataId = card.getAttribute("data-id");
 
-  const dataFav = "data-fav";
-  if (card.getAttribute(dataFav) === "true") {
-    card.setAttribute(dataFav, "false");
+  // Remove from favorites
+  if (card.getAttribute(constants.dataFav) === "true") {
+    card.setAttribute(constants.dataFav, "false");
     btn.textContent = constants.favText.notFav;
     removeLocalStorage(dataId);
-  } else {
-    card.setAttribute(dataFav, "true");
-    btn.textContent = constants.favText.isFav;
-    addLocalStorage(dataId);
 
     // If we are on the favorites filter, we need to update the card favorite status when we remove a card from the favorites
     if (filterFavBtn.classList.contains("filters__button--active")) {
       filters.favorite(document.querySelectorAll(".card"));
     }
   }
-
-  // card.setAttribute(dataFav, card.getAttribute(dataFav) === "true" ? "false" : "true");
-  // btn.textContent = card.getAttribute(dataFav) === "true" ? constants.favText.isFav : constants.favText.notFav;
-
-  if (card.getAttribute(dataFav) === "false" && filterFavBtn.classList.contains("filters__button--active")) {
-    favoriteFilter(document.querySelectorAll(".card"));
+  // Add to favorites
+  else {
+    card.setAttribute(constants.dataFav, "true");
+    btn.textContent = constants.favText.isFav;
+    addLocalStorage(dataId);
   }
+
   console.log(JSON.parse(localStorage.getItem("favorites")));
 }
 

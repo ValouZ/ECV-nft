@@ -6,7 +6,7 @@ import format from "./format.js";
 const root = document.querySelector("body");
 const cardsContainer = document.querySelector(".cards-container");
 
-function init(cards) {
+async function init(cards) {
   cards.assets.forEach((o) => {
     createCards(o);
   });
@@ -104,6 +104,7 @@ function createElement(tag, config, parent = null) {
         });
       });
     } else if (el === "style") {
+      // TODO: add styles
     } else {
       element[el] = config[el];
     }
