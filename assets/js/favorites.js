@@ -7,11 +7,11 @@ import filters from "./filters.js";
 */
 async function init() {
   const favIds = JSON.parse(localStorage.getItem("favorites"));
-  console.log(favIds);
+  // console.log(favIds);
   if (favIds) {
     favIds.forEach((id) => {
       const card = document.querySelector(`.card[data-id="${id}"]`);
-      console.log(id, card);
+      // console.log(id, card);
       //! updateFavBtn() qui provoque l'erreur
       if (card) updateFavBtn(card, card.querySelector(".card__fav-button"));
     });
@@ -19,7 +19,7 @@ async function init() {
 }
 
 function updateFavBtn(card, btn) {
-  console.log("updateFavBtn");
+  // console.log("updateFavBtn");
   const filterFavBtn = document.querySelector(".filters__fav");
   const dataId = card.getAttribute("data-id");
 
@@ -41,7 +41,7 @@ function updateFavBtn(card, btn) {
     addLocalStorage(dataId);
   }
 
-  console.log(JSON.parse(localStorage.getItem("favorites")));
+  // console.log(JSON.parse(localStorage.getItem("favorites")));
 }
 
 function addLocalStorage(id) {

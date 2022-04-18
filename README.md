@@ -7,16 +7,14 @@ Made by Valentin Debray, valentin.debray@mail-ecv.fr
 ## TODO
 
 - Choosen feature : infinite scroll
-- Pagination fetch : <http://awesome-nft-app.herokuapp.com/docs/>
 - Searchbar with API : https://awesome-nft-app.herokuapp.com/search?q={votre-recherche} and debounce
-- Filters with api calls
-- Manage styles in **createElement()**
+- Filters : Favorites, Creators
 
 Bonus :
 
 - Skeleton loading
 - Routing
-
+  
 ## DONE
 
 - Product listing
@@ -27,12 +25,14 @@ Bonus :
 - Delete from fav
 - Use **CreateElement()** method
 - Upgrade **CreateElement()**
+- Manage styles in **createElement()**
+- Filters : Sales, All
 
 Bonus :
 
 - LocalStorage
 - Searchbar
 
-### sass command
+### API DOC
 
-> sass ./assets/scss/main.scss ./assets/css/main.css --watch
+http://awesome-nft-app.herokuapp.com/docs/

@@ -24,7 +24,7 @@ function createCards(el) {
   const description = el.description;
   const id = el.id;
   const link = el.permalink;
-  const sales = parseInt(Math.random() * 100);
+  const sales = el.sales;
   const mainClass = "card";
 
   // CARD
@@ -50,16 +50,44 @@ function createCards(el) {
   );
   // CARD IMG
   if (imgUrl) {
-    createElement("img", { className: `${mainClass}__img`, src: imgUrl }, cardEl);
+    createElement(
+      "img",
+      { className: `${mainClass}__img`, src: imgUrl },
+      cardEl
+    );
   }
   // CARD CONTENT
-  const cardContentEl = createElement("div", { className: `${mainClass}__content` }, cardEl);
+  const cardContentEl = createElement(
+    "div",
+    { className: `${mainClass}__content` },
+    cardEl
+  );
   //  CARD NAME
-  createElement("a", { className: `${mainClass}__name`, textContent: name, href: link, target: "_blank" }, cardContentEl);
+  createElement(
+    "a",
+    {
+      className: `${mainClass}__name`,
+      textContent: name,
+      href: link,
+      target: "_blank",
+    },
+    cardContentEl
+  );
   // CARD CREATOR
-  createElement("p", { className: `${mainClass}__creator`, textContent: format.creator(creatorName) }, cardContentEl);
+  createElement(
+    "p",
+    {
+      className: `${mainClass}__creator`,
+      textContent: format.creator(creatorName),
+    },
+    cardContentEl
+  );
   // CARD SALES
-  createElement("p", { className: `${mainClass}__sales`, textContent: format.sales(sales) }, cardContentEl);
+  createElement(
+    "p",
+    { className: `${mainClass}__sales`, textContent: format.sales(sales) },
+    cardContentEl
+  );
 
   // ADD FAV BUTTON
   createElement(
@@ -67,7 +95,13 @@ function createCards(el) {
     {
       className: `${mainClass}__fav-button`,
       textContent: constants.favText.notFav,
-      events: [{ type: "click", action: favorites.updateFavBtn, params: [cardEl, "this"] }],
+      events: [
+        {
+          type: "click",
+          action: favorites.updateFavBtn,
+          params: [cardEl, "this"],
+        },
+      ],
     },
     cardEl
   );
@@ -75,7 +109,11 @@ function createCards(el) {
   // SEE MORE BUTTON
   createElement(
     "button",
-    { className: `${mainClass}__see-more-button`, textContent: "See more", events: [{ type: "click", action: seeMore.open, params: [cardEl] }] },
+    {
+      className: `${mainClass}__see-more-button`,
+      textContent: "See more",
+      events: [{ type: "click", action: seeMore.open, params: [cardEl] }],
+    },
     cardContentEl
   );
 }
@@ -104,6 +142,9 @@ function createElement(tag, config, parent = null) {
         });
       });
     } else if (el === "style") {
+      Object.keys(config[el]).forEach((key) => {
+        element.style[key] = config[el][key];
+      });
       // TODO: add styles
     } else {
       element[el] = config[el];
@@ -119,7 +160,13 @@ function createElement(tag, config, parent = null) {
   return element;
 }
 
+async function clear() {
+  console.log("cards.clear()");
+  cardsContainer.innerHTML = "";
+}
+
 export default {
   init,
   createCards,
+  clear,
 };

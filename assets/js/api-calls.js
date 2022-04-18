@@ -1,23 +1,72 @@
 import favorites from "./favorites.js";
 import cards from "./cards.js";
+import constants from "./constants.js";
 
 let page = 1;
 
-async function call() {
-  await fetch(`https://awesome-nft-app.herokuapp.com/?page=${page}`)
+async function getNfts(resetPageBool = false) {
+  resetPage(resetPageBool);
+  const url = `${constants.apiUrl}?page=${page}`;
+  console.log(url);
+  call(url);
+}
+
+async function getNftsBySales(resetPageBool = false) {
+  resetPage(resetPageBool);
+  const url = `${constants.apiUrl}?page=${page}&sales=true`;
+  console.log(url);
+  call(url);
+}
+
+async function getNftsByCreators(resetPageBool = false) {
+  resetPage(resetPageBool);
+  const url = `${constants.apiUrl}creators`;
+  console.log(url);
+  // call(url);
+}
+
+async function call(url) {
+  await fetch(url)
     .then(function (response) {
       return response.json();
     })
     .then(async function (res) {
-      await cards.init(res);
-      await favorites.init();
+      if (checkNextPage(res.next)) {
+        await cards.init(res);
+        await favorites.init();
+      } else {
+        alert("NO MORE NFTS");
+      }
     })
     .catch(function (error) {
       console.warn(error);
     });
-  console.log(page++);
+  page++;
 }
 
-document.querySelector(".load-more").addEventListener("click", call);
+function resetPage(reset) {
+  if (reset) page = 1;
+}
 
-export default { call };
+function checkNextPage(next) {
+  return page + 1 === next;
+}
+
+document.querySelector(".load-more").addEventListener("click", () => {
+  const btnId = [...constants.filterBtns]
+    .find((btn) => btn.classList.contains("filters__button--active"))
+    .getAttribute("id");
+  switch (btnId) {
+    case "fav":
+      break;
+    case "creator":
+      break;
+    case "sales":
+      getNftsBySales();
+      break;
+    default:
+      getNfts();
+  }
+});
+
+export default { getNfts, getNftsBySales, getNftsByCreators, page };
