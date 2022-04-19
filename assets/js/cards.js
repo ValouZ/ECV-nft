@@ -13,7 +13,6 @@ async function init(cards) {
 }
 
 function createCard(el) {
-  console.log(el);
   const collection = el.collection;
   const collectionName = collection.name;
   const collectionBanner = collection.banner_image_url;

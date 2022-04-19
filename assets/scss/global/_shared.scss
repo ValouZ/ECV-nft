@@ -65,7 +65,7 @@ button {
   transition: 0.2s;
 
   &:hover,
-  .filters__button--active {
+  &.filters__button--active {
     background: lighten($color: $main-bg, $amount: 30);
     padding: 8px 32px;
   }

@@ -61,8 +61,7 @@ button {
   border-radius: 4px;
   transition: 0.2s;
 }
-.main-btn:hover,
-.main-btn .filters__button--active {
+.main-btn:hover, .main-btn.filters__button--active {
   background: #260be7;
   padding: 8px 32px;
 }
@@ -166,6 +165,9 @@ button {
   align-items: flex-end;
   gap: 8px;
   width: 100%;
+}
+.searchbar__title span {
+  font-size: 1rem;
 }
 .searchbar__container {
   display: flex;

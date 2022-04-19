@@ -43,6 +43,22 @@ async function getFavorites(array) {
   });
 }
 
+async function search(name) {
+  const url = `${constants.apiUrl}search?q=${name}`;
+  console.log(url);
+  await fetch(url)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(async function (res) {
+      await cards.init(res);
+      await favorites.init();
+    })
+    .catch(function (error) {
+      console.warn(error);
+    });
+}
+
 async function call(url) {
   await fetch(url)
     .then(function (response) {
@@ -92,5 +108,6 @@ export default {
   getNftsBySales,
   getNftsByCreators,
   getFavorites,
+  search,
   page,
 };

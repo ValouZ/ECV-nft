@@ -10,9 +10,6 @@ function init() {
     btn.addEventListener("click", (e) => {
       activateFilterButton(e.target);
       const btnId = e.target.getAttribute("id");
-      const cards = document.querySelectorAll(".card");
-      // resetOrder(cards);
-      // displayAll(cards);
       loadMore.display();
       switch (btnId) {
         case "fav":
@@ -42,6 +39,13 @@ function resetOrder(cards) {
   cards.forEach((card) => {
     card.style.order = "";
   });
+}
+
+function resetFilters() {
+  constants.filterBtns.forEach((btn) => {
+    btn.classList.remove("filters__button--active");
+  });
+  constants.filterBtns[0].classList.add("filters__button--active");
 }
 
 async function displayAll() {
@@ -97,6 +101,7 @@ async function creator() {
 export default {
   init,
   activateFilterButton,
+  resetFilters,
   resetOrder,
   displayAll,
   favorite,
