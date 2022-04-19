@@ -25,6 +25,24 @@ async function getNftsByCreators(resetPageBool = false) {
   // call(url);
 }
 
+async function getFavorites(array) {
+  await array.forEach(async (id) => {
+    const url = `${constants.apiUrl}nft/${id}`;
+    console.log(url);
+    await fetch(url)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(async function (res) {
+        cards.createCard(res);
+        favorites.init();
+      })
+      .catch(function (error) {
+        console.warn(error);
+      });
+  });
+}
+
 async function call(url) {
   await fetch(url)
     .then(function (response) {
@@ -69,4 +87,10 @@ document.querySelector(".load-more").addEventListener("click", () => {
   }
 });
 
-export default { getNfts, getNftsBySales, getNftsByCreators, page };
+export default {
+  getNfts,
+  getNftsBySales,
+  getNftsByCreators,
+  getFavorites,
+  page,
+};

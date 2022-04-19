@@ -1,6 +1,7 @@
 import constants from "./constants.js";
 import apiCalls from "./api-calls.js";
 import cards from "./cards.js";
+import loadMore from "./load-more.js";
 
 // ************ FILTERS FUNCTIONS ************
 
@@ -12,6 +13,7 @@ function init() {
       const cards = document.querySelectorAll(".card");
       // resetOrder(cards);
       // displayAll(cards);
+      loadMore.display();
       switch (btnId) {
         case "fav":
           favorite();
@@ -43,36 +45,18 @@ function resetOrder(cards) {
 }
 
 async function displayAll() {
-  console.log("displayAll()");
   await cards.clear();
   apiCalls.getNfts(true);
-
-  // cards.forEach((card) => {
-  //   card.classList.remove(constants.notFavClass);
-  // });
 }
 
 async function favorite() {
   await cards.clear();
-  // cards.forEach((card) => {
-  //   if (card.getAttribute(constants.dataFav) === "true") {
-  //     card.classList.remove(constants.notFavClass);
-  //   } else {
-  //     card.classList.add(constants.notFavClass);
-  //   }
-  // });
+  loadMore.hide();
+  const favs = JSON.parse(localStorage.getItem("favorites"));
+  apiCalls.getFavorites(favs);
 }
 
 async function sales() {
-  // let tabCards = [];
-  // cards.forEach((card) => {
-  //   tabCards.push(card);
-  // });
-  // tabCards
-  //   .sort((a, b) => b.getAttribute("data-sales") - a.getAttribute("data-sales"))
-  //   .map((card, i) => {
-  // card.style.order = i;
-  //   });
   console.log("sales()");
   await cards.clear();
   apiCalls.getNftsBySales(true);

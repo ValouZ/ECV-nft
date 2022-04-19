@@ -8,25 +8,23 @@ Made by Valentin Debray, valentin.debray@mail-ecv.fr
 
 - Choosen feature : infinite scroll
 - Searchbar with API : https://awesome-nft-app.herokuapp.com/search?q={votre-recherche} and debounce
-- Filters : Favorites, Creators
+- Filters : Creators
 
 Bonus :
 
 - Skeleton loading
 - Routing
-  
+
 ## DONE
 
 - Product listing
 - See product details
-- Creator Filter (unknow at the end)
-- Sales Filter
 - Add to fav
 - Delete from fav
+- Filters : All, Sales, Favorites
 - Use **CreateElement()** method
 - Upgrade **CreateElement()**
 - Manage styles in **createElement()**
-- Filters : Sales, All
 
 Bonus :
 

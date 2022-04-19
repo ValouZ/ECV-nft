@@ -37,12 +37,14 @@ async function resetDetails() {
   detailsName.setAttribute("href", "");
   document.querySelector(".details__img img").setAttribute("src", "");
   document.querySelector(".details__creator").textContent = "";
+  
   const detailsDescription = document.querySelector(".details__description");
   detailsDescription.textContent = "";
   detailsDescription.style.display = "";
   document.querySelector(".details__sales").textContent = "";
   document.querySelector(".details__collection-name").textContent = "";
   document.querySelector(".details__collection-banner").setAttribute("src", "");
+
   const detailsCollectionDescription = document.querySelector(".details__collection-description");
   detailsCollectionDescription.textContent = "";
   detailsCollectionDescription.style.display = "";

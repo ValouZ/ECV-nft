@@ -8,11 +8,11 @@ const cardsContainer = document.querySelector(".cards-container");
 
 async function init(cards) {
   cards.assets.forEach((o) => {
-    createCards(o);
+    createCard(o);
   });
 }
 
-function createCards(el) {
+function createCard(el) {
   const collection = el.collection;
   const collectionName = collection.name;
   const collectionBanner = collection.banner_image_url;
@@ -161,12 +161,11 @@ function createElement(tag, config, parent = null) {
 }
 
 async function clear() {
-  console.log("cards.clear()");
   cardsContainer.innerHTML = "";
 }
 
 export default {
   init,
-  createCards,
+  createCard,
   clear,
 };

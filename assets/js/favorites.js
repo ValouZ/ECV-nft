@@ -7,38 +7,49 @@ import filters from "./filters.js";
 */
 async function init() {
   const favIds = JSON.parse(localStorage.getItem("favorites"));
-  // console.log(favIds);
   if (favIds) {
     favIds.forEach((id) => {
       const card = document.querySelector(`.card[data-id="${id}"]`);
       // console.log(id, card);
       //! updateFavBtn() qui provoque l'erreur
-      if (card) updateFavBtn(card, card.querySelector(".card__fav-button"));
+      if (card) add(card, card.querySelector(".card__fav-button"));
     });
   }
+}
+
+function add(card, btn) {
+  // console.log("favorites.add()");
+  const dataId = card.getAttribute("data-id");
+  card.setAttribute(constants.dataFav, "true");
+  btn.textContent = constants.favText.isFav;
+  addLocalStorage(dataId);
+}
+
+function remove(card, btn) {
+  // console.log("favorites.remove()");
+  const dataId = card.getAttribute("data-id");
+  card.setAttribute(constants.dataFav, "false");
+  btn.textContent = constants.favText.notFav;
+  removeLocalStorage(dataId);
 }
 
 function updateFavBtn(card, btn) {
   // console.log("updateFavBtn");
   const filterFavBtn = document.querySelector(".filters__fav");
-  const dataId = card.getAttribute("data-id");
 
   // Remove from favorites
   if (card.getAttribute(constants.dataFav) === "true") {
-    card.setAttribute(constants.dataFav, "false");
-    btn.textContent = constants.favText.notFav;
-    removeLocalStorage(dataId);
+    remove(card, btn);
 
     // If we are on the favorites filter, we need to update the card favorite status when we remove a card from the favorites
     if (filterFavBtn.classList.contains("filters__button--active")) {
-      filters.favorite(document.querySelectorAll(".card"));
+      // filters.favorite(document.querySelectorAll(".card"));
+      card.remove();
     }
   }
   // Add to favorites
   else {
-    card.setAttribute(constants.dataFav, "true");
-    btn.textContent = constants.favText.isFav;
-    addLocalStorage(dataId);
+    add(card, btn);
   }
 
   // console.log(JSON.parse(localStorage.getItem("favorites")));
