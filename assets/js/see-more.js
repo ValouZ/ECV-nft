@@ -8,27 +8,54 @@ async function open(card) {
   document.querySelector("body").classList.add("modal-opened");
 
   const detailsName = document.querySelector(".details__name");
-  const detailsCreator = document.querySelector(".details__creator");
+  const detailsCreator = document.querySelector(".details__creator-name p");
+  const detailsCreatorAvatar = document.querySelector(
+    ".details__creator-avatar"
+  );
   const detailsSales = document.querySelector(".details__sales");
   const detailsDescription = document.querySelector(".details__description");
   const detailsImg = document.querySelector(".details__img img");
-  const detailsCollectionName = document.querySelector(".details__collection-name");
-  const detailsCollectionBanner = document.querySelector(".details__collection-banner");
-  const detailsCollectionDescription = document.querySelector(".details__collection-description");
+  const detailsCollectionName = document.querySelector(
+    ".details__collection-name"
+  );
+  const detailsCollectionBanner = document.querySelector(
+    ".details__collection-banner"
+  );
+  const detailsCollectionDescription = document.querySelector(
+    ".details__collection-description"
+  );
+  const detailsOwnerName = document.querySelector(".details__owner-name p");
+  const detailsOwnerAvatar = document.querySelector(".details__owner-avatar");
 
   detailsName.textContent = card.getAttribute("data-name");
   detailsName.setAttribute("href", card.getAttribute("data-link"));
   detailsImg.setAttribute("src", card.getAttribute("data-img"));
-  detailsCreator.textContent = format.creator(card.getAttribute("data-creator"));
+  detailsCreatorAvatar.setAttribute(
+    "src",
+    card.getAttribute("data-creator-avatar")
+  );
+  detailsCreator.textContent = format.creator(
+    card.getAttribute("data-creator")
+  );
   card.getAttribute("data-description") !== ""
     ? (detailsDescription.textContent = card.getAttribute("data-description"))
     : (detailsDescription.style.display = "none");
   detailsSales.textContent = format.sales(card.getAttribute("data-sales"));
   detailsCollectionName.textContent = card.getAttribute("data-collection-name");
-  detailsCollectionBanner.setAttribute("src", card.getAttribute("data-collection-banner"));
+  detailsCollectionBanner.setAttribute(
+    "src",
+    card.getAttribute("data-collection-banner")
+  );
   card.getAttribute("data-collection-description") !== ""
-    ? (detailsCollectionDescription.textContent = card.getAttribute("data-collection-description"))
+    ? (detailsCollectionDescription.textContent = card.getAttribute(
+        "data-collection-description"
+      ))
     : (detailsCollectionDescription.style.display = "none");
+  detailsOwnerName.textContent = card.getAttribute("data-owner-name");
+  detailsOwnerAvatar.setAttribute(
+    "src",
+    card.getAttribute("data-owner-avatar")
+  );
 }
 
 async function resetDetails() {
@@ -36,8 +63,9 @@ async function resetDetails() {
   detailsName.textContent = "";
   detailsName.setAttribute("href", "");
   document.querySelector(".details__img img").setAttribute("src", "");
-  document.querySelector(".details__creator").textContent = "";
-  
+  document.querySelector(".details__creator-name p").textContent = "";
+  document.querySelector(".details__creator-avatar").setAttribute("src", "");
+
   const detailsDescription = document.querySelector(".details__description");
   detailsDescription.textContent = "";
   detailsDescription.style.display = "";
@@ -45,7 +73,9 @@ async function resetDetails() {
   document.querySelector(".details__collection-name").textContent = "";
   document.querySelector(".details__collection-banner").setAttribute("src", "");
 
-  const detailsCollectionDescription = document.querySelector(".details__collection-description");
+  const detailsCollectionDescription = document.querySelector(
+    ".details__collection-description"
+  );
   detailsCollectionDescription.textContent = "";
   detailsCollectionDescription.style.display = "";
 }

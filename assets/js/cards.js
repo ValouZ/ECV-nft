@@ -13,6 +13,7 @@ async function init(cards) {
 }
 
 function createCard(el) {
+  console.log(el);
   const collection = el.collection;
   const collectionName = collection.name;
   const collectionBanner = collection.banner_image_url;
@@ -20,11 +21,16 @@ function createCard(el) {
   const creator = el.creator;
   const name = el.name;
   const creatorName = creator.username;
+  const creatorAvatar = creator.profile_url;
   const imgUrl = el.image_url;
   const description = el.description;
   const id = el.id;
   const link = el.permalink;
   const sales = el.sales;
+  const owner = el.owner;
+  const ownerName = owner.username;
+  const ownerAvatar = owner.profile_url;
+
   const mainClass = "card";
 
   // CARD
@@ -36,6 +42,7 @@ function createCard(el) {
         id,
         name,
         creator: creatorName,
+        "creator-avatar": creatorAvatar,
         sales,
         fav: false,
         description,
@@ -44,6 +51,8 @@ function createCard(el) {
         "collection-name": collectionName,
         "collection-banner": collectionBanner,
         "collection-description": collectionDescription,
+        "owner-name": ownerName,
+        "owner-avatar": ownerAvatar,
       },
     },
     cardsContainer
