@@ -39,24 +39,11 @@ function createCard(el) {
       className: mainClass,
       data: {
         id,
-        name,
-        creator: creatorName,
-        "creator-avatar": creatorAvatar,
-        sales,
-        fav: false,
-        description,
-        img: imgUrl,
-        link,
-        "collection-name": collectionName,
-        "collection-banner": collectionBanner,
-        "collection-description": collectionDescription,
-        "owner-name": ownerName,
-        "owner-avatar": ownerAvatar,
       },
     },
     cardsContainer
   );
-  
+
   // CARD IMG
   if (imgUrl) {
     createElement(
@@ -118,17 +105,6 @@ function createCard(el) {
     },
     cardEl
   );
-
-  // // SEE MORE BUTTON
-  // createElement(
-  //   "button",
-  //   {
-  //     className: `${mainClass}__see-more-button`,
-  //     textContent: "See more",
-  //     events: [{ type: "click", action: seeMore.open, params: [cardEl] }],
-  //   },
-  //   cardContentEl
-  // );
 
   // SEE MORE BUTTON
   createElement(

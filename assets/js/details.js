@@ -3,7 +3,7 @@ import constants from "./constants.js";
 import format from "./format.js";
 
 window.addEventListener("load", async () => {
-  const id = window.location.search.slice(4);
+  const id = window.location.search.slice(4); // Remove "?id=" from the url
   const url = `${constants.apiUrl}nft/${id}`;
   console.log(url);
   await fetch(url)
@@ -16,7 +16,6 @@ window.addEventListener("load", async () => {
     .catch(function (error) {
       console.warn(error);
     });
-  // await apiCalls.getNfts(id.slice(4));
 });
 
 function fillDetails(nft) {
@@ -57,9 +56,6 @@ function fillDetails(nft) {
   nft.collection.description !== ""
     ? (detailsCollectionDescription.textContent = nft.collection.description)
     : (detailsCollectionDescription.style.display = "none");
-    detailsOwnerName.textContent = nft.owner.username;
-    detailsOwnerAvatar.setAttribute(
-      "src",
-      nft.owner.profile_url
-    );
+  detailsOwnerName.textContent = nft.owner.username;
+  detailsOwnerAvatar.setAttribute("src", nft.owner.profile_url);
 }
