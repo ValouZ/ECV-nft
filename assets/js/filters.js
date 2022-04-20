@@ -1,6 +1,7 @@
 import constants from "./constants.js";
 import apiCalls from "./api-calls.js";
 import cards from "./cards.js";
+import searchbar from "./searchbar.js";
 
 // ************ FILTERS FUNCTIONS ************
 
@@ -9,6 +10,7 @@ function init() {
     btn.addEventListener("click", (e) => {
       activateFilterButton(e.target);
       const btnId = e.target.getAttribute("id");
+      searchbar.clear();
       switch (btnId) {
         case "fav":
           favorite();

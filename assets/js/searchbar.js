@@ -4,8 +4,7 @@ import filters from "./filters.js";
 
 const searchbar = document.querySelector("#searchbar");
 const searchBarClear = document.querySelector(".searchbar__clear");
-searchbar.value = ""; // Be sure to have an empty searchbar
-// let timeout = null;
+clear(); // Be sure to have an empty searchbar
 
 function init() {
   searchbar.addEventListener("keyup", (e) => {
@@ -13,9 +12,13 @@ function init() {
   });
 
   searchBarClear.addEventListener("click", (e) => {
-    searchbar.value = "";
-    search('')
+    clear();
+    search("");
   });
+}
+
+function clear() {
+  searchbar.value = "";
 }
 
 function debounce(func, timeout = 300) {
@@ -40,4 +43,4 @@ async function search(val) {
 
 const processChange = debounce((val) => search(val));
 
-export default { init };
+export default { init, clear };
