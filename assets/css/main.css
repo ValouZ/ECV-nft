@@ -9,7 +9,6 @@
 }
 
 body {
-  min-height: 100vh;
   background: #0e0455;
 }
 body.modal-opened {
@@ -68,7 +67,6 @@ button {
 
 .cards-container {
   display: flex;
-  justify-content: center;
   align-items: flex-start;
   flex-wrap: wrap;
   gap: 32px;
@@ -76,10 +74,9 @@ button {
 
 .card {
   position: relative;
-  flex-grow: 1;
   color: #ffffff;
   width: 20%;
-  min-width: 360px;
+  width: 400px;
   border-radius: 16px;
   background: #12056d;
   box-shadow: 0 15px 60px rgba(0, 0, 0, 0.5);

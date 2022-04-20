@@ -6,8 +6,7 @@ Made by Valentin Debray, valentin.debray@mail-ecv.fr
 
 ## TODO
 
-- Choosen feature : infinite scroll
-- Filters : Creators
+- Filters : Creators - **async issue**
 
 Bonus :
 
@@ -25,6 +24,7 @@ Bonus :
 - Upgrade **CreateElement()**
 - Manage styles in **createElement()**
 - Searchbar with API : https://awesome-nft-app.herokuapp.com/search?q={votre-recherche} and debounce
+- Choosen feature : infinite scroll with **IntersectionObserver**
 
 Bonus :
 

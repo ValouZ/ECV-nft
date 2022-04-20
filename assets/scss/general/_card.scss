@@ -1,9 +1,9 @@
 .card {
   position: relative;
-  flex-grow: 1;
+  // flex-grow: 1;
   color: $white;
   width: 20%;
-  min-width: 360px;
+  width: 400px;
   border-radius: 16px;
   background: lighten($color: $main-bg, $amount: 5);
   box-shadow: 0 15px 60px rgba(0, 0, 0, 0.5);

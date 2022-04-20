@@ -14,9 +14,7 @@ function init() {
 
   searchBarClear.addEventListener("click", (e) => {
     searchbar.value = "";
-    // cards.forEach((card) => {
-    //   card.classList.remove("not-searched");
-    // });
+    search('')
   });
 }
 

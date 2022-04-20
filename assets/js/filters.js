@@ -1,7 +1,6 @@
 import constants from "./constants.js";
 import apiCalls from "./api-calls.js";
 import cards from "./cards.js";
-import loadMore from "./load-more.js";
 
 // ************ FILTERS FUNCTIONS ************
 
@@ -10,7 +9,6 @@ function init() {
     btn.addEventListener("click", (e) => {
       activateFilterButton(e.target);
       const btnId = e.target.getAttribute("id");
-      loadMore.display();
       switch (btnId) {
         case "fav":
           favorite();
@@ -55,47 +53,37 @@ async function displayAll() {
 
 async function favorite() {
   await cards.clear();
-  loadMore.hide();
   const favs = JSON.parse(localStorage.getItem("favorites"));
   apiCalls.getFavorites(favs);
 }
 
 async function sales() {
-  console.log("sales()");
   await cards.clear();
   apiCalls.getNftsBySales(true);
 }
 
 async function creator() {
-  await cards.clear();
-  // apiCalls.getNftsByCreators(true);
-
-  // let tabCards = [];
-  // cards.forEach((card) => {
-  //   tabCards.push(card);
-  // });
-  // tabCards.sort((a, b) => {
-  //   const creatorA = a.getAttribute("data-creator").toLowerCase();
-  //   const creatorB = b.getAttribute("data-creator").toLowerCase();
-  //   if (creatorB > creatorA) {
-  //     return -1;
-  //   }
-  //   if (creatorB < creatorA) {
-  //     return 1;
-  //   }
-  //   return 0;
-  // });
-  // let tabEmptyNames = [];
-  // tabCards.forEach((card) => {
-  //   if (card.getAttribute("data-creator") === "") {
-  //     tabEmptyNames.push(card);
-  //   }
-  // });
-  // tabCards.splice(0, tabEmptyNames.length);
-  // tabCards = tabCards.concat(tabEmptyNames);
-  // tabCards.map((card, i) => {
-  //   card.style.order = i;
-  // });
+  try {
+    await cards.clear();
+    let res = await apiCalls.getCreators(true);
+    let creatorTab = [];
+    res.creators.forEach((creator) => {
+      if (creator.username !== "") {
+        creatorTab.push(creator.username);
+      }
+    });
+    creatorTab.sort((a, b) => {
+      a = a.toLowerCase();
+      b = b.toLowerCase();
+      if (a < b) return -1;
+      if (a > b) return 1;
+      return 0;
+    });
+    creatorTab = [...new Set(creatorTab)];
+    apiCalls.getNftsByCreators(creatorTab);
+  } catch (e) {
+    console.warn(e);
+  }
 }
 
 export default {
