@@ -10,7 +10,6 @@ Made by Valentin Debray, valentin.debray@mail-ecv.fr
 
 Bonus :
 
-- Skeleton loading
 - Routing
 
 ## DONE
@@ -30,6 +29,7 @@ Bonus :
 
 - LocalStorage
 - Searchbar
+- Skeleton loading
 
 ### API DOC
 

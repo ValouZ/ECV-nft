@@ -56,20 +56,23 @@ function createCard(el) {
     },
     cardsContainer
   );
+  
   // CARD IMG
   if (imgUrl) {
     createElement(
       "img",
-      { className: `${mainClass}__img`, src: imgUrl },
+      { className: `${mainClass}__img skeleton`, src: imgUrl, loading: "lazy" },
       cardEl
     );
   }
+
   // CARD CONTENT
   const cardContentEl = createElement(
     "div",
     { className: `${mainClass}__content` },
     cardEl
   );
+
   //  CARD NAME
   createElement(
     "a",
@@ -81,6 +84,7 @@ function createCard(el) {
     },
     cardContentEl
   );
+
   // CARD CREATOR
   createElement(
     "p",
@@ -90,6 +94,7 @@ function createCard(el) {
     },
     cardContentEl
   );
+
   // CARD SALES
   createElement(
     "p",

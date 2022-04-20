@@ -297,5 +297,22 @@ button {
   border-radius: 50%;
   border: 2px solid #ffffff;
 }
+.details__collection-banner {
+  width: 100%;
+  min-height: 100px;
+}
+
+.skeleton {
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: hsl(200deg, 20%, 70%);
+  }
+  100% {
+    background-color: hsl(200deg, 20%, 95%);
+  }
+}
 
 /*# sourceMappingURL=main.css.map */
