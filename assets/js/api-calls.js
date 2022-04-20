@@ -4,7 +4,6 @@ import constants from "./constants.js";
 import infiniteScroll from "./infinite-scroll.js";
 
 let page = 1;
-let noMorePages = false;
 
 async function getNfts(resetPageBool = false) {
   resetPage(resetPageBool);
@@ -20,6 +19,12 @@ async function getNftsBySales(resetPageBool = false) {
   await call(url);
 }
 
+async function getNftsById(id) {
+  const url = `${constants.apiUrl}nft/${id}`;
+  console.log("%cNft by sales : " + url, "color:orange");
+  await call(url);
+}
+
 async function call(url) {
   await fetch(url)
     .then(function (response) {
@@ -31,7 +36,6 @@ async function call(url) {
         await favorites.init();
         await infiniteScroll.init();
       } else {
-        noMorePages = true;
         alert("NO MORE NFTS");
       }
     })
@@ -120,6 +124,7 @@ function checkNextPage(next) {
 export default {
   getNfts,
   getNftsBySales,
+  getNftsById,
   getCreators,
   getNftsByCreators,
   getFavorites,

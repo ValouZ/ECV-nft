@@ -119,6 +119,17 @@ function createCard(el) {
     cardEl
   );
 
+  // // SEE MORE BUTTON
+  // createElement(
+  //   "button",
+  //   {
+  //     className: `${mainClass}__see-more-button`,
+  //     textContent: "See more",
+  //     events: [{ type: "click", action: seeMore.open, params: [cardEl] }],
+  //   },
+  //   cardContentEl
+  // );
+
   // SEE MORE BUTTON
   createElement(
     "button",

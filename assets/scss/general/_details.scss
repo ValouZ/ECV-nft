@@ -1,25 +1,5 @@
 .details {
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%) scale(0);
-  background: darken($color: $main-bg, $amount: 10);
-  width: 100vw;
-  min-height: 110vh;
-  height: 100%;
-  padding: 10vh 10vw;
-  z-index: 10;
-  transition: 0.3s;
-  overflow: hidden scroll;
-  opacity: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  &--opened {
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 1;
-  }
+  width: 100%;
 
   &__close {
     position: absolute;
@@ -45,7 +25,6 @@
     gap: 24px;
     width: 100%;
     color: $white;
-    margin-top: 5vh;
   }
 
   &__name {
@@ -67,8 +46,9 @@
   }
 
   &__img {
-    max-width: 100%;
     min-width: 40%;
+    max-width: 100%;
+    min-height: 50%;
     max-height: 80%;
     img {
       width: 100%;
@@ -93,7 +73,7 @@
     }
   }
 
-  &__creator{
+  &__creator {
     margin: 0;
   }
 
@@ -113,8 +93,8 @@
     }
   }
 
-  &__collection{
-    &-banner{
+  &__collection {
+    &-banner {
       width: 100%;
       min-height: 100px;
     }
