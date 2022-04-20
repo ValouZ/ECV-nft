@@ -8,10 +8,6 @@ Made by Valentin Debray, valentin.debray@mail-ecv.fr
 
 - Filters : Creators - **async issue**
 
-Bonus :
-
-- Routing
-
 ## DONE
 
 - Product listing
@@ -30,6 +26,7 @@ Bonus :
 - LocalStorage
 - Searchbar
 - Skeleton loading
+- Routing
 
 ### API DOC
 

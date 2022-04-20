@@ -52,6 +52,10 @@ button {
 }
 
 .main-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
   font-size: 1.2rem;
   padding: 8px 24px;
   border: none;
@@ -203,21 +207,6 @@ button {
 .details {
   width: 100%;
 }
-.details__close {
-  position: absolute;
-  top: 10vh;
-  right: 10vw;
-  padding: 8px 16px;
-  font-size: 1.5rem;
-  border: none;
-  background: #260be7;
-  border-radius: 4px;
-  color: #ffffff;
-  transition: 0.1s;
-}
-.details__close:hover {
-  background: #060224;
-}
 .details__main {
   display: flex;
   flex-direction: column;
@@ -227,6 +216,7 @@ button {
   color: #ffffff;
 }
 .details__name {
+  display: block;
   font-size: 3rem;
   font-weight: bold;
   text-transform: uppercase;

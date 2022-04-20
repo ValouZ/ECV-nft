@@ -1,5 +1,6 @@
 // import apiCalls from "./api-calls.js";
 import constants from "./constants.js";
+import format from "./format.js";
 
 window.addEventListener("load", async () => {
   const id = window.location.search.slice(4);
@@ -49,4 +50,16 @@ function fillDetails(nft) {
   nft.description !== ""
     ? (detailsDescription.textContent = nft.description)
     : (detailsDescription.style.display = "none");
+
+  detailsSales.textContent = format.sales(nft.sales);
+  detailsCollectionName.textContent = nft.collection.name;
+  detailsCollectionBanner.setAttribute("src", nft.collection.banner_image_url);
+  nft.collection.description !== ""
+    ? (detailsCollectionDescription.textContent = nft.collection.description)
+    : (detailsCollectionDescription.style.display = "none");
+    detailsOwnerName.textContent = nft.owner.username;
+    detailsOwnerAvatar.setAttribute(
+      "src",
+      nft.owner.profile_url
+    );
 }

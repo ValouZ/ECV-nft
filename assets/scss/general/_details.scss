@@ -1,21 +1,7 @@
 .details {
   width: 100%;
 
-  &__close {
-    position: absolute;
-    top: 10vh;
-    right: 10vw;
-    padding: 8px 16px;
-    font-size: 1.5rem;
-    border: none;
-    background: lighten($color: $main-bg, $amount: 30);
-    border-radius: 4px;
-    color: $white;
-    transition: 0.1s;
-
-    &:hover {
-      background: darken($color: $main-bg, $amount: 10);
-    }
+  &__back {
   }
 
   &__main {
@@ -25,9 +11,13 @@
     gap: 24px;
     width: 100%;
     color: $white;
+
+    h1{
+    }
   }
 
   &__name {
+display: block;
     font-size: 3rem;
     font-weight: bold;
     text-transform: uppercase;
