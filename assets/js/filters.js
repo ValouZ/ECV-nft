@@ -82,7 +82,8 @@ async function creator() {
       return 0;
     });
     creatorTab = [...new Set(creatorTab)];
-    apiCalls.getNftsByCreators(creatorTab);
+    console.log(creatorTab);
+    await apiCalls.getNftsByCreators(creatorTab);
   } catch (e) {
     console.warn(e);
   }

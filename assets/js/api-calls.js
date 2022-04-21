@@ -62,15 +62,18 @@ async function getCreators() {
 }
 
 async function getNftsByCreators(array) {
-  await array.forEach(async (creator) => {
+  array.forEach((creator) => {
     const url = `${constants.apiUrl}creators/${creator}`;
     console.log("%cCreators : " + url, "color:lime");
-    await fetch(url)
+    fetch(url)
       .then(function (response) {
         return response.json();
       })
-      .then(async function (res) {
-        await cards.init(res);
+      .then(function (res) {
+        console.log(res);
+        cards.init(res);
+      })
+      .then(function () {
         favorites.init();
       })
       .catch(function (error) {
