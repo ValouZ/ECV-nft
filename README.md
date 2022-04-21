@@ -4,6 +4,8 @@ Made by Valentin Debray, valentin.debray@mail-ecv.fr
 
 ## How to execute project
 
+Install live server extension and launch it on index.hmtl file
+
 ## TODO
 
 - Filters : Creators - **async issue**
