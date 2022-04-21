@@ -5,7 +5,7 @@ import filters from "./filters.js";
 /* //TODO : Régler le problème de l'affichage des favoris, les favoris de la page 1
   se suppriment lorsque l'on passe à la page 2. VOIR COMMENTAIRE SI DESSOUS
 */
-async function init() {
+function init() {
   const favIds = JSON.parse(localStorage.getItem("favorites"));
   if (favIds) {
     favIds.forEach((id) => {

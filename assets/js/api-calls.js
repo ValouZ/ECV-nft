@@ -32,9 +32,9 @@ async function call(url) {
     })
     .then(async function (res) {
       if (checkNextPage(res.next)) {
-        await cards.init(res);
-        await favorites.init();
-        await infiniteScroll.init();
+        cards.init(res);
+        favorites.init();
+        infiniteScroll.init();
       } else {
         alert("NO MORE NFTS");
       }
@@ -62,23 +62,27 @@ async function getCreators() {
 }
 
 async function getNftsByCreators(array) {
-  array.forEach((creator) => {
-    const url = `${constants.apiUrl}creators/${creator}`;
-    console.log("%cCreators : " + url, "color:lime");
-    fetch(url)
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (res) {
-        console.log(res);
-        cards.init(res);
-      })
-      .then(function () {
-        favorites.init();
-      })
-      .catch(function (error) {
-        console.warn(error);
-      });
+  await Promise.all(
+    array.map(async (creator) => {
+      const url = `${constants.apiUrl}creators/${creator}`;
+      console.log("%cCreators : " + url, "color:lime");
+      const res = await fetch(url);
+      const data = await res.json();
+      cards.init(data);
+    })
+  );
+  favorites.init();
+  const cardsEl = [...document.querySelectorAll(".card")];
+  cardsEl.sort((a, b) => {
+    a = a.getAttribute("data-creator-name").toLowerCase();
+    b = b.getAttribute("data-creator-name").toLowerCase();
+    if (a < b) return -1;
+    if (a > b) return 1;
+    return 0;
+  });
+  console.log(cardsEl);
+  cardsEl.forEach((card, i) => {
+    card.style.order = i;
   });
 }
 
@@ -108,8 +112,8 @@ async function search(name) {
       return response.json();
     })
     .then(async function (res) {
-      await cards.init(res);
-      await favorites.init();
+      cards.init(res);
+      favorites.init();
     })
     .catch(function (error) {
       console.warn(error);

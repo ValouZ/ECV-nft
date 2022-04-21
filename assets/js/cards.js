@@ -6,7 +6,7 @@ import format from "./format.js";
 const root = document.querySelector("body");
 const cardsContainer = document.querySelector(".cards-container");
 
-async function init(cards) {
+function init(cards) {
   cards.assets.forEach((o) => {
     createCard(o);
   });
@@ -39,6 +39,7 @@ function createCard(el) {
       className: mainClass,
       data: {
         id,
+        "creator-name": creatorName,
       },
     },
     cardsContainer
@@ -46,19 +47,11 @@ function createCard(el) {
 
   // CARD IMG
   if (imgUrl) {
-    createElement(
-      "img",
-      { className: `${mainClass}__img skeleton`, src: imgUrl, loading: "lazy" },
-      cardEl
-    );
+    createElement("img", { className: `${mainClass}__img skeleton`, src: imgUrl, loading: "lazy" }, cardEl);
   }
 
   // CARD CONTENT
-  const cardContentEl = createElement(
-    "div",
-    { className: `${mainClass}__content` },
-    cardEl
-  );
+  const cardContentEl = createElement("div", { className: `${mainClass}__content` }, cardEl);
 
   //  CARD NAME
   createElement(
@@ -83,11 +76,7 @@ function createCard(el) {
   );
 
   // CARD SALES
-  createElement(
-    "p",
-    { className: `${mainClass}__sales`, textContent: format.sales(sales) },
-    cardContentEl
-  );
+  createElement("p", { className: `${mainClass}__sales`, textContent: format.sales(sales) }, cardContentEl);
 
   // ADD FAV BUTTON
   createElement(

@@ -74,15 +74,7 @@ async function creator() {
         creatorTab.push(creator.username);
       }
     });
-    creatorTab.sort((a, b) => {
-      a = a.toLowerCase();
-      b = b.toLowerCase();
-      if (a < b) return -1;
-      if (a > b) return 1;
-      return 0;
-    });
     creatorTab = [...new Set(creatorTab)];
-    console.log(creatorTab);
     await apiCalls.getNftsByCreators(creatorTab);
   } catch (e) {
     console.warn(e);

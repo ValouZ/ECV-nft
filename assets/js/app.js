@@ -3,7 +3,7 @@ import filters from "./filters.js";
 import searchbar from "./searchbar.js";
 
 window.addEventListener("load", async () => {
-  await apiCalls.getNfts();
+  apiCalls.getNfts();
   filters.init();
   searchbar.init();
 });
